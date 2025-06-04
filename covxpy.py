@@ -117,7 +117,7 @@ def cvxpy_loss(caching_decision, offloading_decision, input_arry, output_arry, c
     #       sum(down_bandwidth_allocated.value))
     # 计算总时延
     delay_edge = np.sum(k1 * param3 / (cpu_allocated.value + 1e-6))  # 边缘计算时延
-    delay_transmission = np.sum(k1 * (param1 / (up_bandwidth_allocated.value + 1e-6) +
+    delay_transmission = np.sum((param1 / (up_bandwidth_allocated.value + 1e-6) +
                                 param2 / (down_bandwidth_allocated.value + 1e-6)))  # 传输时延
     delay_cloud = np.sum(time_cloud)  # 云计算时延
     total_delay = delay_edge + delay_transmission + delay_cloud
