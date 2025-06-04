@@ -247,20 +247,4 @@ class Environment(object):
 # print(action_range)
 
 
-def test_random_act(num_service_type=10):
 
-    bandwidthup_space_low = np.ones((num_service_type,))
-    bandwidthup_space_high = np.ones((num_service_type,)) * 4.0  # 3mhz
-
-    bandwidthdown_space_low = np.ones((num_service_type,))
-    bandwidthdown_space_high = np.ones((num_service_type,)) * 4.0  # 3mhz
-
-    compute_resource_allocate_low = np.ones((num_service_type,))
-    compute_resource_allocate_high = np.ones((num_service_type,)) * 6.0  # 3ghz
-
-    action_space = spaces.Dict({'offloading': spaces.MultiBinary(10), 'caching': spaces.MultiBinary(10),
-                                'uplink': spaces.Box(low=bandwidthup_space_low, high=bandwidthup_space_high), 'downlink': spaces.Box(low=bandwidthdown_space_low, high=bandwidthdown_space_high),
-                                'frequency': spaces.Box(low=compute_resource_allocate_low, high=compute_resource_allocate_high)})
-
-    at = action_space.sample()
-    print(at)
