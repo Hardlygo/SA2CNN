@@ -23,14 +23,14 @@ def gen_input_ouput_data(tasks=40):
 
 
 
-def gen_service_space():
+def gen_service_space(num_types):
     """
     10个服务类型占用空间服从均匀分布
     只需要生成一次？因为占用空间在一个episode内不改变的
     40 80 G
     """
    
-    spaces = np.random.uniform(40, 81, size=(10,))  #
+    spaces = np.random.uniform(40, 81, size=(num_types,))  #
     
     spaces = np.around(spaces)  
     print(spaces, spaces.sum())
